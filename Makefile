@@ -1,8 +1,10 @@
-.PHONY: commit lint build .up restart run start stop
+.PHONY: commit lint build .up restart run start stop build-isolated up-isolated
 
 run: build .up
 
 restart: stop start
+
+run-isolated: build-isolated up-isolated
 
 commit:
 	git add .
@@ -23,3 +25,9 @@ start:
 
 stop:
 	docker-compose stop
+
+build-isolated:
+	docker build -t zadanie6105:latest .
+
+up-isolated:
+	docker run zadanie6105:latest
