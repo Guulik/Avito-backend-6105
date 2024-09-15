@@ -30,4 +30,4 @@ build-isolated:
 	docker build -t zadanie6105:latest .
 
 up-isolated:
-	docker run zadanie6105:latest
+	docker run -p 8080:8080 zadanie6105:latest
