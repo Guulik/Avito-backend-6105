@@ -1,0 +1,6 @@
+address: "0.0.0.0:8080"
+user: "postgres"
+password: "5379"
+host: "localhost"
+port: "7777"
+DBName: "tender"
