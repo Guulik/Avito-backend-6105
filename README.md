@@ -30,16 +30,18 @@ PS: тут пришлось экстренно пересобирать прое
 Сначала
 `make build-isolated`, потом
 ```
-docker run -e POSTGRES_CONN="postgres://cnrprod:cnrprod@postgres:5432/cnrprod" \
--e POSTGRES_USERNAME="cnrprod" \
--e POSTGRES_PASSWORD="cnrprod" \
--e POSTGRES_HOST="postgres" \
--e POSTGRES_PORT="5432" \
--e POSTGRES_DATABASE="cnrprod" \
+docker run -e POSTGRES_CONN="postgres://{username}:{password}@{hostname}:{port}/{db_name}" \
+-e POSTGRES_JDBC_URL="{JDBC_conn}"\
+-e POSTGRES_USERNAME="{username}" \
+-e POSTGRES_PASSWORD="{password}" \
+-e POSTGRES_HOST="{host}" \
+-e POSTGRES_PORT="{port}" \
+-e POSTGRES_DATABASE="{database}" \
 -p 8080:8080 \
 zadanie6105:latest
 ```
 
+Если есть Connection string, то в принципек
 По дефолту там [всё так же, как было в gitlab-ci.yml](./Dockerfile)
 # Введение
 

@@ -26,9 +26,11 @@ func New(log *slog.Logger, db *sqlx.DB) *Storage {
 func ConnectPostgres(c *config.Config) (*sqlx.DB, error) {
 	connectionUrl := c.POSTGRES_CONN
 
+	fmt.Println("trying to connect via:", connectionUrl)
 	db, err := sqlx.Connect("pgx", connectionUrl)
 	if err != nil {
 		fmt.Println("connection error: ", err)
+		return nil, err
 	}
 
 	fmt.Println("connection to db was successful!")

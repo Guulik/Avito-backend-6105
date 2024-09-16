@@ -97,6 +97,14 @@ func MustGetEnv() *Config {
 		}
 	}
 
+	if config.POSTGRES_CONN == "" {
+		//compile connection string
+		postgresConn := fmt.Sprintf(
+			"postgres://%s:%s@%s:%s/%s",
+			config.POSTGRES_USERNAME, config.POSTGRES_PASSWORD, config.POSTGRES_HOST, config.POSTGRES_PORT, config.POSTGRES_DATABASE)
+
+		config.POSTGRES_CONN = postgresConn
+	}
 	config.ENV = "prod"
 	return config
 }
