@@ -41,7 +41,7 @@ docker run -e POSTGRES_CONN="postgres://{username}:{password}@{hostname}:{port}/
 zadanie6105:latest
 ```
 
-Если есть Connection string, то в принципек
+Если есть Connection string, то в принципе все остальное указывать не обязательно.
 По дефолту там [всё так же, как было в gitlab-ci.yml](./Dockerfile)
 # Введение
 
